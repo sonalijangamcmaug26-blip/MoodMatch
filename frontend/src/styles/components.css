@@ -11,8 +11,9 @@
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.nav__inner { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 1rem; }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; min-width: 0; min-height: 100px; gap: 1rem; }
 .nav__brand { display: flex; align-items: center; gap: 0.6rem; font: 800 1.45rem var(--font-heading); color: var(--cream); }
+.nav__brand img { width: 150px; height: 100px; object-fit: contain; flex-shrink: 0; }
 .nav__brand:hover { color: var(--cream); }
 .nav__links { display: flex; align-items: center; gap: 0.35rem; }
 .nav__link { padding: 0.5rem 0.85rem; border-radius: 999px; color: var(--cream-muted); font-weight: 500; font-size: 0.95rem; transition: background 0.18s, color 0.18s; }
@@ -22,11 +23,12 @@
 .nav__toggle { display: none; flex-direction: column; gap: 5px; padding: 0.6rem; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; }
 .nav__toggle span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 2px; }
 
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
   .nav__toggle { display: flex; }
+  .nav__brand img { width: min(200px, calc(100vw - 100px)); }
   .nav__links {
     position: absolute;
-    top: 68px;
+    top: 100px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -46,6 +48,7 @@
 .footer { margin-top: 4rem; background: var(--navy-950); border-top: 1px solid var(--border); }
 .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 2rem; padding: 3rem 0 2rem; }
 .footer__logo { display: flex; align-items: center; gap: 0.6rem; font: 800 1.3rem var(--font-heading); margin-bottom: 0.6rem; }
+.footer__logo img { width: 180px; height: 68px; object-fit: cover; object-position: center; flex-shrink: 0; }
 .footer__brand p, .footer__note { color: var(--cream-muted); font-size: 0.92rem; margin: 0; }
 .footer__links { display: flex; flex-direction: column; gap: 0.5rem; }
 .footer__links a { color: var(--cream-muted); }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logo from '../assets/moodmatch-logo.png';
 import { useAuth } from '../context/AuthContext';
 
 export default function Footer() {
@@ -10,8 +10,7 @@ export default function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <div className="footer__logo">
-            <img src={logo} alt="" width="30" height="30" />
-            <span>MoodMatch</span>
+            <img src={logo} alt="MoodMatch" />
           </div>
           <p>Books and movies that match how you feel right now.</p>
         </div>

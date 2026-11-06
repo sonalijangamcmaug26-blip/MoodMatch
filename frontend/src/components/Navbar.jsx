@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logo from '../assets/moodmatch-logo.png';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
@@ -21,8 +21,7 @@ export default function Navbar() {
     <header className="nav">
       <div className="container nav__inner">
         <Link to="/" className="nav__brand" onClick={closeMenu}>
-          <img src={logo} alt="" width="34" height="34" />
-          <span>MoodMatch</span>
+          <img src={logo} alt="MoodMatch" />
         </Link>
 
         <button
