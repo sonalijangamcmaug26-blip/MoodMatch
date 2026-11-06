@@ -2,6 +2,24 @@ import app from './app.js';
 import { testConnection } from './config/db.js';
 import env from './config/env.js';
 
+const startServer = (port) => {
+  const server = app.listen(port, () => {
+    console.log(`MoodMatch API running on http://localhost:${port}/api`);
+  });
+
+  server.on('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+      const nextPort = port + 1;
+      console.warn(`Port ${port} is already in use. Retrying on port ${nextPort}...`);
+      startServer(nextPort);
+      return;
+    }
+
+    console.error('Server failed to start:', error.message);
+    process.exit(1);
+  });
+};
+
 try {
   await testConnection();
   console.log('Connected to MySQL database:', env.db.database);
@@ -11,6 +29,4 @@ try {
   process.exit(1);
 }
 
-app.listen(env.port, () => {
-  console.log(`MoodMatch API running on http://localhost:${env.port}/api`);
-});
+startServer(env.port);
